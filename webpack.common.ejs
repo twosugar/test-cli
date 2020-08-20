@@ -1,0 +1,5 @@
+<%= answers.cssPreprocessor == 'none'
+    ? /\.css$/ : (answers.cssPreprocessor == 'less' ? /\.less$/ : /\.scss$/) %>
+
+<%= answers.cssPreprocessor == 'none'
+    ? '' : (answers.cssPreprocessor == 'less' ? 'less-loader' : 'sass-loader') %>
