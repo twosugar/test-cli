@@ -4,7 +4,8 @@
   "description": "自定义脚手架",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open"
   },
   "bin": {
     "test-cli": "./bin/multi-spa.js"
@@ -12,10 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
-  },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^6.0.0",
@@ -24,5 +21,9 @@
     "inquirer": "^7.3.3",
     "ora": "^5.0.0",
     "shelljs": "^0.8.4"
+  },
+  "devDependencies": {
+    "css-loader": "^4.2.1",
+    "style-loader": "^1.2.1"
   }
 }
