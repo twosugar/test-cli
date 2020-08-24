@@ -57,7 +57,7 @@ if (program.args.length === 0) {
 }
 
 function DownTemplate(projectDir) {
-  const remote = "https://github.com/yexiaochen/multi-spa-webpack-cli.git";
+  const remote = "https://github.com/twosugar/test-cli.git";
   const { template } = answersConfig;
   let downTemplateSpinner = ora(chalk.cyan("模板生成中...")).start();
   return new Promise((resolve, reject) => {
@@ -68,9 +68,6 @@ function DownTemplate(projectDir) {
       git init
       git remote add -f origin ${remote}
       git config core.sparsecheckout true
-      echo "template/common" >> .git/info/sparse-checkout
-      echo "template/config" >> .git/info/sparse-checkout
-      echo "template/services" >> .git/info/sparse-checkout
       echo "template/${template}" >> .git/info/sparse-checkout
       echo ".gitignore" >> .git/info/sparse-checkout
       echo "package.json" >> .git/info/sparse-checkout
@@ -133,11 +130,11 @@ function getAnswers(appName) {
 async function GenarateWebpackConfig(targetDir) {
   try {
     const webpackConfigPath = path.resolve(
-      `${currentPath}/${targetDir}/config`,
+      `${currentPath}`,
       "webpack.common.ejs"
     );
     const webpackConfigTargetPath = path.resolve(
-      `${currentPath}/${targetDir}/config`,
+      `${currentPath}`,
       "webpack.common.js"
     );
     const webpackConfigSpinner = ora(
@@ -161,7 +158,7 @@ async function GenarateWebpackConfig(targetDir) {
 
 async function GenaratePackageJson(projectDir) {
   try {
-    const { name, description, cssPreprocessor } = answersConfig;
+    const { name, description, cssPreprocessor, template } = answersConfig;
     const packageJsonPath = path.resolve(
       `${currentPath}/${projectDir}`,
       "package.json"
