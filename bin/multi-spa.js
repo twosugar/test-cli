@@ -108,18 +108,18 @@ function getAnswers(appName) {
       message: "项目描述",
       default: "",
     },
-    {
-      type: "confirm",
-      name: "eslint",
-      message: "是否启用 eslint+pretty",
-      default: true,
-    },
-    {
-      name: "cssPreprocessor",
-      type: "list",
-      message: "CSS 预处理器",
-      choices: ["less", "sass", "none"],
-    },
+    // {
+    //   type: "confirm",
+    //   name: "eslint",
+    //   message: "是否启用 eslint+pretty",
+    //   default: true,
+    // },
+    // {
+    //   name: "cssPreprocessor",
+    //   type: "list",
+    //   message: "CSS 预处理器",
+    //   choices: ["less", "sass", "none"],
+    // },
     {
       name: "template",
       type: "list",
@@ -194,9 +194,10 @@ async function GenaratePackageJson(projectDir) {
       };
       package.devDependencies = {
         ...package.devDependencies,
-        "@babel/plugin-proposal-class-properties": "^7.4.4",
-        "@babel/preset-react": "^7.0.0",
-        "babel-plugin-import": "^1.12.0",
+        "vue-loader": "^15.9.3",
+        "vue-template-compiler": "^2.6.12",
+        "babel-polyfill": "^6.26.0",
+        "@vue/component-compiler-utils": "^1.3.1",
       };
     }
     if (template == "vue") {
